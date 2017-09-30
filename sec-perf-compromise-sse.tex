@@ -1,0 +1,71 @@
+\RequirePackage{etoolbox}
+
+%% Sometimes, we need the good old \if ...
+\makeatletter
+\newcommand{\iftogglehard}[1]{%
+	\ifcsdef{etb@tgl@#1}
+		{\csname etb@tgl@#1\endcsname\iftrue\iffalse}
+		{\etb@noglobal\etb@err@notoggle{#1}\iffalse}%
+}
+\makeatother
+
+\newtoggle{showoverflow}  % true = show overflows
+\newtoggle{allowtodo}     % false = remove todo command
+\newtoggle{showtodo}      % true = show todo; false = hide todo
+\newtoggle{inlinetodo}    % true = use inlined todo instead of the package
+
+\toggletrue{showoverflow}
+
+\toggletrue{allowtodo}
+\toggletrue{showtodo}
+\toggletrue{inlinetodo}
+
+
+\newtoggle{twocols}  % true = use two columns
+% \toggletrue{twocols}
+
+\newtoggle{anon}  % true = anonymous
+% \toggletrue{anon}
+
+
+\iftoggle{twocols}{
+
+	\documentclass[letterpaper,twocolumn,10pt]{article}
+
+}{ % if twocols
+	\documentclass{article}
+}
+
+\input{aux/packages}
+\input{aux/macros}
+\input{aux/sse_macros}
+
+\setcounter{tocdepth}{2}
+\usepackage{fullpage}
+
+
+\begin{document}
+	
+	\title{Security-Performance Tradeoffs in (Symmetric) Searchable Encryption}
+	
+	\iftoggle{anon}{
+		\author{
+		\alignauthor
+		Anonymous submission
+		}
+	}{
+	\author{Raphael Bost\thanks{Direction Générale de l'Armement - Maîtrise de l'Information \& Université de Rennes 1, France. The views and conclusions contained herein are those of the author and should not be interpreted as necessarily representing the official policies or endorsements, either expressed or implied, of the DGA or the French Government.
+	email: \href{mailto:raphael_bost@alumni.brown.edu}{\nolinkurl{raphael_bost@alumni.brown.edu}}
+	}
+	}
+		
+	}
+	\date{}
+	
+	\maketitle %% ACM template needs a late maketitle
+	
+	
+	\bibliographystyle{bibstyle/bibstyle}
+	\bibliography{cryptobib/abbrev3,biblio_aux,cryptobib/crypto}
+	
+\end{document}
