@@ -1,0 +1,57 @@
+% !TEX root = ../sec-perf-compromise-sse.tex
+
+
+\section{Contributions} % (fold)
+\label{sec:contributions}
+
+Before stating our contribution, let us define a few notations.
+The size of an encrypted database is $N$, and the number of documents in this database matching the keyword $w$ is $n_w$.
+$K$ is the number of distinct keywords in the dataset. 
+Finally, we will also denote $\sigma$ the size of the local state of the client. 
+
+
+\subsection{Lower bound on the Efficiency of Search-Pattern-Hiding Schemes} % (fold)
+\label{sub:search_pat_lb}
+
+The first lower bound we show answer the question of the minimal search efficiency of a scheme hiding the repetition of search queries, but that leaks the number of results of each query, and the size of the database.
+
+Using a technique close to the one used in the ORAM lower bound of Goldreich and Ostrovsky~\cite{JACM:GO96}, we show that the efficiency of the search protocol of such scheme has to be 
+\[
+		\bigOmega{\frac{\log \binom{N}{n_w}}{\log \sigma \cdot \log \log  \binom{N}{n_w}}}
+\]
+for the first search query (the lower bound for the subsequent queries is slightly better but more complex to describe here).
+
+
+We will also see that is the encrypted database has more structure and leaks the keyword frequency (also called the profile of the database in~\cite{EC:CasTes14}), this lower bound does not hold anymore, and a new (tight) bound can be proven.
+
+
+% subsection search_pat_lb (end)
+
+\subsection{Lower Bound on the Efficiency of Forward-Private Schemes} % (fold)
+\label{sub:fp_lb}
+
+The second result we present is a lower bound on forward-private schemes~\cite{NDSS:StePapShi14,CCS:Bost16}.
+These forward-private schemes hide all the information about the keywords modified during an update.
+This security property thwart devastating attacks against dynamic searchable encryption schemes~\cite{USENIX:ZhaKatPap16}, and is a must have property for new designs.
+Yet, every existing construction had a cost, either in terms of computation ($\bigO{n_w + \log N}$ computation for the search protocol and $\bigO{\log^2 N}$ for the update protocol of $\SPS$~\cite{NDSS:StePapShi14}), or in terms of client storage ($\bigO{K}$ for $\sophos$~\cite{CCS:Bost16}).
+
+We actually show that $\sophos$ is an optimal point in the security-performance tradeoff. Namely, the update complexity of a forward-private scheme is
+\[
+		\bigOmega{\frac{\log K}{\log \sigma \cdot \log \log  K}}.
+\]
+$\sophos$ shows that the lower bound is tight, as we have $\sigma = K$, and both the search and update complexity is constant.
+
+% subsection fp_lb (end)
+
+\subsection{Lower Bound on the Efficiency of Verifiable Searchable Encryption Schemes} % (fold)
+\label{sub:vsse_lb}
+
+Finally, we looked at defending searchable encryption schemes against malicious adversaries, \ie adversaries who can cheat during the execution of the search (and update) procedures. 
+Schemes whose results cannot be tampered are called verifiable. 
+
+Again, we can wonder what is the cost of this additional security property.
+We show that this problem is closely related to  memory checking, and is tight to similar lower bounds on efficiency~\cite{ICALP:TamTri05,TCC:DNRV09}.
+Namely, the search or update complexity of a verifiable scheme is \[\bigOmega{m + \frac{\log K}{\log \log K}}\] as long as the client's state has size $K^{1-\varepsilon}$ for $\varepsilon > 0$. 
+% subsection vsse_lb (end)
+
+% section contributions (end)
