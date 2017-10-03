@@ -1,0 +1,30 @@
+% !TEX root = ../sec-perf-compromise-sse.tex
+
+
+\section{Introduction} % (fold)
+\label{sec:introduction}
+
+Searchable encryption (SE) is a well known way to outsource the storage of private data to an untrusted server, so that the client can keep some search features.
+With the development of Cloud storage services, for both private individuals and businesses, efficiency of searchable encryption is crucial: inefficient constructions would not be deployed on a large scale because they would not be usable.
+The key problem with searchable encryption is that any construction achieving `perfect security' induces a computational or a communicational overhead that is unacceptable for the cloud providers or for the cloud users --- at least with current techniques and by today's standards.
+
+
+In particular, when instantiated using generic tools, such as Private Information Retrieval (PIR), Multiparty Computation (MPC), Fully Homomorphic Encryption (FHE) or Oblivious RAM (ORAM), the cost of searchable encryption is prohibitive, both in theory (\eg linear in the size of the database with FHE) or in practice (very high communication complexity with ORAM).
+
+On the other hand, if we allow the searchable encryption scheme to \emph{leak} some information about the database, or about the queries, things get a lot better in terms of efficiency.
+As an example, we could consider CryptDB or any legacy-compatible encrypted database.
+These are very efficient in theory (optimal theoretical computational complexity) and in practice (the database throughput is almost not reduced compared to its unencrypted counterpart), and support many features, as they often rely on very efficient symmetric cryptography primitives for the security, and on regular database management system, such as MySQL, for the storage of the data.
+Yet, these constructions are often practically broken due to the structuring of the encrypted database, as shown by numerous attacks\todo{cite}.
+
+Between these two extrema --- very secure but inefficient schemes, and very efficient but practically insecure schemes --- lie many constructions, that are (at least asymptotically) efficient, and that leak a lot less than legacy-compatible databases (\eg they do not leak the frequency of keywords prior searches) but more than construction based on the generic tools mentioned above (\eg they leak the repetition of keywords).
+
+All this shows that we can compromise between security and performance. 
+However, it is unclear what are the optimal points of this tradeoffs, or said otherwise, what are the best possible performance of a scheme given its leakage.
+
+\medskip
+
+In this presentation, I will present several lower bounds on the efficiency of searchable encryption schemes.
+These lower bounds will concern schemes hiding the repetition of search queries, schemes hiding the modified keyword during updates (a.k.a. forward-private schemes), schemes secure against malicious adversaries.
+If time permits, I will also speak a little about the storage locality of searchable encryption and various proven and conjectured lower bounds.
+
+% section introduction (end)
