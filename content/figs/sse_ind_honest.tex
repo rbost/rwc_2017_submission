@@ -1,0 +1,56 @@
+% !TEX root = ../definitions.tex
+
+
+	\begin{figure}[ht]
+		\begin{tabular}{r|l}
+			
+			\begin{minipage}[t]{0.42\textwidth}
+				\underline{$\Init(\DB_0, \DB_1)$}
+				\begin{algorithmic}[0]
+					\SmallIf{$\L^\Stp(\DB_0) \neq \L^\Stp(\DB_1)$}
+						\State Abort game
+
+					\State $b \getsr \zo$
+					\State $(\EDB, K_\Sigma, \sigma) \gets \Setup(\DB_b)$
+					\State \Return $\EDB$
+				\end{algorithmic}
+
+				\underline{$\Final(b')$}
+				\begin{algorithmic}[0]
+					\State \Return $b = b'$
+				\end{algorithmic}
+			\end{minipage}
+			&
+			% \hspace{0.6cm}
+			\hspace{0.02\textwidth}
+			\begin{minipage}[t]{0.49\textwidth}
+				\underline{$\Search(q_0, q_1)$}
+				\begin{algorithmic}[0]
+					\SmallIf{$\L^\Srch(q_0) \neq \L^\Srch(q_1)$}
+						\State Abort game
+
+					\State $(R, \sigma, \tau; \EDB) \getsr \Search(K_\Sigma,\sigma,q_b;\EDB)$
+					\State \Return $\tau$
+				\end{algorithmic}
+				
+				\underline{$\Update((\op_0,\opin_0),(\op_1,\opin_1))$}
+				\begin{algorithmic}[0]
+					\SmallIf{$\L^\Updt(\op_0,\opin_0) \neq \L^\Updt(\op_1,\opin_1)$}
+						\State Abort game
+
+					\State $(\sigma, \tau; \EDB) \getsr  \Update(K_\Sigma, \sigma,\op_b,\opin_b;\EDB)$
+					% \State $\DB \gets \mathsf{Apply}(\DB,\op,\opin)$
+					% \State $\EDB \gets \EDB', \sigma \gets \sigma'$
+					% \State $\EDB \gets \EDB', \sigma \gets \sigma'$
+					\State \Return $\tau$
+				\end{algorithmic}
+				
+
+				
+			\end{minipage}
+		\end{tabular}
+				
+		\caption[$\SSEInd_{\Sigma, \L}$: SSE indistinguishability game]{$\SSEInd_{\Sigma, \L}$: Indistinguishability game for the SSE scheme $\Sigma = (\Setup,\allowbreak \Search,\allowbreak \Update)$, with the leakage function $\L = (\L^\Stp, \L^\Srch, \L^\Updt)$.}
+		\label{fig:ind_sse_honest}
+	\end{figure}
+	

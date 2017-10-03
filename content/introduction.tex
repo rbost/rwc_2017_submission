@@ -14,7 +14,7 @@ In particular, when instantiated using generic tools, such as Private Informatio
 On the other hand, if we allow the searchable encryption scheme to \emph{leak} some information about the database, or about the queries, things get a lot better in terms of efficiency.
 As an example, we could consider CryptDB~\cite{SOSP:PRZB11} or any legacy-compatible encrypted database.
 These are very efficient in theory (optimal theoretical computational complexity) and in practice (the database throughput is almost not reduced compared to its unencrypted counterpart), and support many features, as they often rely on very efficient symmetric cryptography primitives for the security, and on regular database management system, such as MySQL, for the storage of the data.
-Yet, these constructions are often practically broken due to the structuring of the encrypted database, as shown by numerous attacks\cite{CCS:NavKamWri15,CCS:CGPR15,EPRINT:LacMinPat17}.
+Yet, these constructions are often practically broken due to the structuring of the encrypted database, as shown by numerous attacks~\cite{CCS:NavKamWri15,CCS:CGPR15,EPRINT:LacMinPat17}.
 
 Between these two extrema --- very secure but inefficient schemes, and very efficient but practically insecure schemes --- lie many constructions, such as the ones described in~\cite{CCS:CGKO06,CCS:KamPapRoe12,C:CJJKRS13,NDSS:StePapShi14,CCS:Bost16,EC:KamMoa17,CCS:BosMinOhr17}, that are (at least asymptotically) efficient, and that leak a lot less than legacy-compatible databases (\eg they do not leak the frequency of keywords prior searches) but more than construction based on the generic tools mentioned above (\eg they leak the repetition of keywords).
 
@@ -30,6 +30,7 @@ Interestingly, we will see that these bounds are almost immediately invalidated 
 In the following, we start by introducing the formal tools necessary to prove these lower bounds.
 Then we show a lower bound on the efficiency of searchable encryption schemes hiding the search pattern (hiding the repetition of search queries), and show that this bound does not hold once the encrypted database leaks the keywords' frequency.
 In a last section, we show a lower bound on the efficiency of the update mechanism of forward-private (dynamic) searchable encryption schemes, and show that a previously designed forward-private scheme ($\sophos$~\cite{CCS:Bost16}) is computationally optimal as it indeed matches this lower bound.
+Finally, I will present a simple and very general lower bound on schemes aiming at being secure against malicious adversaries.
 
 % Finally, if time permits, I will also speak a little about the storage locality of searchable encryption schemes and various proven and conjectured lower bounds on this locality.
 

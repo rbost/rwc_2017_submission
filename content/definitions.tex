@@ -1,0 +1,153 @@
+% !TEX root = ../sec-perf-compromise-sse.tex
+
+
+\section{Definitions and Tools} % (fold)
+\label{sec:defs}
+
+Let us start by giving a few definitions that will be useful to formally define searchable encryption and to correctly state theorems.
+
+\subsection{Preliminaries} % (fold)
+\label{sub:preliminaries}
+
+In the paper, $\secpar$ is the security parameter and $\negl$ denotes a negligible function in the security parameter.
+% Our construction uses pseudo-random functions (PRF) and (keyed) hash functions, for which we use the standard security definitions~\cite{goldreich2004foundations}.
+We only consider (possibly probabilistic)  algorithms and protocols running in time polynomial in the security parameter $\lambda$.
+In particular, adversaries are probabilistic polynomial time algorithms.
+
+For a finite set $X$, $x \getsr X$ means that $x$ was uniformly sampled from $X$.
+
+% subsection preliminaries (end)
+
+\subsection{Formalism of Symmetric Searchable Encryption} % (fold)
+\label{sub:se_formalism}
+
+
+
+A \emph{database} $\DB$ is defined as:
+\[
+\DB = \left\{ (\ind_i,\W_i) : 1 \leq i \leq D \right\},
+\]
+with \( \ind_i \in \zo^\ell, \W_i \subseteq \zo^* \) 
+and where $\ind_i$ are distinct \emph{document indices}, represented by $\ell$-bit strings, and $\W_i$ is a set of \emph{keywords} matching document $\ind_i$, represented by binary strings of arbitrary length.
+Note that, in this manuscript, documents are identified with their indices.
+In addition, let us define:
+% \begin{align*}
+% 	D &  = |\DB|  \text{ the number of documents;}\\
+% 	\W & = \bigcup_{i=1}^D \W_i \text{ the set of keywords;}\\
+% 	K &  = |\W| \text{ the number of keywords;}\\
+% 	N &  = \sum_{i=1}^D |\W_i|  \text{ the number of document/keyword pairs.}
+% \end{align*}
+\\
+\centerline{
+\renewcommand{\tabcolsep}{.7mm}
+\begin{tabular}{rl}
+$D$ & $ = |\DB|$  the number of documents;\\
+$\W$ & $ = \cup_{i=1}^D \W_i$ the set of keywords;\\
+$K$ & $ = |\W|$ the number of keywords;\\
+$N$ & $ = \sum_{i=1}^D |\W_i|$ the number of document/keyword pairs.
+\end{tabular}
+}
+Let $\DB(w)$ denote the set of documents containing keyword $w$:
+\[
+\DB(w) = \left\{\ind_i | w \in \W_i \text{ and } (\ind_i, \W_i) \in \DB \right\}.
+\]
+The value $n_w$ is the number of documents matching $w$: $n_w = |\DB(w)|$.
+
+A \emph{dynamic symmetric searchable encryption (SSE) scheme} is a triple $\Sigma = (\Setup, \allowbreak \Search,  \allowbreak  \Update)$ consisting of one algorithm and two protocols between a client and a server:
+\begin{itemize}
+	\item $\Setup(\DB)$ is a probabilistic algorithm that takes as input the initial database $\DB$. 
+	It outputs a triple $(\EDB, K_\Sigma, \sigma)$, where $K_\Sigma$ is the master secret key, $\EDB$ is an encrypted database, and $\sigma$ is the client's state.
+	
+	\item $\Search(K_\Sigma,q,\sigma;\EDB) = (\Search_C(K_\Sigma,q,\sigma),\Search_S(\EDB))$ is a protocol between the client with input the master secret key $K_\Sigma$, the client's internal state $\sigma$, and a search query $q$; and the server with input the encrypted database $\EDB$.
+	
+	After completing the $\Search$ protocol, the client outputs a list $R$ of results and a new internal state $\sigma'$.
+	Both $R$ and $\sigma'$ can take the special value $\bot$ to signify an error or a failure in the execution of the protocol.
+	The server possibly outputs an updated encrypted database $\EDB'$.
+	
+	
+	The query $q$ can be of any kind: although we will mainly focus on search queries restricted to a single-keyword $w$ (and hence often identify $q$ with $w$), this formalism also supports range queries or boolean queries --- a search query consisting of a boolean formula $\phi$ and a set of keywords $(w_1,\dots,w_n)$ matching the set of documents $\DB(\phi, w_1,\dots,w_n)$ such that
+	\begin{align*}
+		\DB(\phi, w_1,\dots,w_n) = \{\ind_i | \phi(b_1, \dots, b_n) = \true, \text{ where } b_j &= (w_j \in \W_i), \\
+		 \text{ and } &(\ind_i, \W_i) \in \DB \}.
+	\end{align*}
+	More generally, $\DB(q)$ denotes the set of documents matching the query $q$.
+				
+	\item $\Update(K_\Sigma,\sigma, \op,\opin;\EDB)=(\Update_C(K_\Sigma,\sigma, \op,\opin), \allowbreak \Update_S(\EDB))$ is a protocol between the client with input the key $K_\Sigma$ and internal state $\sigma$, an operation $\op$, and an input $\opin$ for the operation; and the server with input $\EDB$.
+	Again, this formalism covers a wide range of different update operations, such as merges, duplications, \emph{etc}.
+	Yet, this thesis focuses on simpler operations: the update operations are taken from the set $\{\add, \allowbreak\del\}$, meaning, respectively, the addition and the deletion of a set of keywords to a document.
+	The input $\opin$ is thus parsed as an index $\ind$, pointing to the modified document, and a set $W$ of keywords to insert or delete.
+
+
+	At the end of the execution of the protocol, the client outputs a new state $\sigma'$, which can take the special value $\bot$, and the server outputs a new encrypted database $\EDB'$.
+\end{itemize}
+
+In this formalism, we explicitly separate the client's state and the key.
+Informally, we want the key to be fixed while the state is mutable.
+We do not require a scheme to have a state (beyond the key), and when it is empty, we may omit is from the protocol's signature.
+Also, we do not require the size of the state to be upper bounded, \eg by the number of keywords. 
+For example, we could imagine a scheme working only on the client side, with no storage on the server.
+This would be a perfectly valid (and secure), but very costly scheme. 
+Hence, the size of the client's state is an important parameter regarding the compromise between security and performance.
+
+An important restriction of this definition is \emph{static symmetric searchable encryption}.
+Such schemes do not support update requests, and hence do not implement the $\Update$ protocol.
+In that case, once the encrypted database has been set up, it is immutable.
+% subsection se_formalism (end)
+
+\subsection{Confidentiality of Searchable Encryption} % (fold)
+\label{sub:se_security}
+
+	Two definitions exist for the confidentiality of searchable encryption. One is indistinguishability-based, and the other simulation-based.
+	In this paper, we will only use the indistinguishability-based defintion, which is weaker than the simulation-based one (\cf \cite{CCS:CGKO06}).
+	
+	The definition is parametrized by a \emph{leakage function} $\L = (\L^\Stp,\L^\Srch,\L^\Updt)$ describing what the protocol leaks to the adversary, and formalized as a stateful algorithm.
+	The definition ensures that the scheme does not reveal any information beyond the ones that can be inferred from the leakage function.
+
+The $\SSEInd$ game picks a random bit $b$ and the adversary's goal is to guess $b$.
+To do so, he (adaptively) submits two sequences of a database and $n$ queries $(\DB^0,q^0_1,\dots,q^0_n)$ and $(\DB^1,q^1_1,\dots,q^1_n)$, and receives from the game the encrypted database and the transcript of the queries corresponding the sequence  $(\DB^b,q^b_1,\dots,q^b_n)$.
+The sequences submitted by the adversary must satisfy a very important constraint: the leakage must be the same for both of them.
+Otherwise, the game aborts as soon as the adversary submits two queries (or two databases) having a different leakage.
+Finally, the adversary outputs a bit $b'$, and wins the game if he successfully guesses $b$.
+
+\subimport{figs/}{sse_ind_honest.tex}
+
+\begin{definition}[Indistinguishability-based confidentiality of SSE]
+	\label{def:sse_ind_conf}
+	Let $\Sigma$ be an SSE scheme.
+	For an adversary $A$, the advantage $\AdvSSEInd{\Sigma,\L,A}$ of $A$ in the indistinguishability-based confidentiality game is defined as
+	\[
+	\AdvSSEInd{\Sigma,\L,A} = \left|\frac{1}{2} - \Prob[\SSEInd^A_{\Sigma,\L}(\secpar) = 1 ] \right|.
+	\]
+	An SSE scheme $\Sigma$ is \emph{$\L$-adaptively-indistinguishability secure} if for all polynomial-time adversary $A$, $\AdvSSEInd{\Sigma,\L,A}$  is negligible in $\secpar$.
+\end{definition}
+
+
+% subsection se_security (end)
+
+\subsection{Soundness of Searchable Encryption} % (fold)
+\label{sub:se_soundness}
+
+The last important security definition we will use is about the notion of \emph{soundness}.
+As for regular soundness definitions, \emph{e.g.} for provers, it describes the fact that no adversary can cheat the client, and make him accept incorrect search results. 
+
+To give a proper soundness definition, we use the game $\SSESnd$ defined in Figure~\ref{fig:sound_sse}.
+The game closely follows the game used to define soundness of interactive provers~\cite{BOOK:Goldreich04}: the client must not accept an invalid search result.
+Also, the dynamism of the database raises a difficult point: the verification has to be done over the current version of the database, and this one must not be modifiable undetectably by a malicious server. 
+Hence, $\SSESnd$ does not apply the update operation on the database when the client rejects the execution of the $\Update$ protocol with the server. 
+
+\subimport{figs/}{sse_soundness.tex}
+
+\begin{definition}[SSE Soundness]
+	Let $\Sigma$ be an SSE scheme.
+	For an adversary $A$, the advantage $\AdvSSESound{\Sigma,A}$ of $A$ in the soundness game is defined as
+	\[
+	\AdvSSESound{\Sigma,A} = \Prob[\SSESnd^A_\Sigma(\secpar) = 1 ].
+	\]
+	An SSE scheme $\Sigma$ is \emph{sound} if for all polynomial-time adversary $A$, $\AdvSSESound{\Sigma,A}$  is negligible in $\secpar$.
+\end{definition}
+
+This definition can be seen as a generalization of the reliability definition of Kurosawa and Ohtaki~\cite{FC:KurOht12}: in that paper, the authors study the case of single-roundtrip constructions (also static ones, but they later extended their definitions to the dynamic setting in~\cite{CANS:KurOht13}).
+
+% subsection se_soundness (end)
+
+% section defs (end)

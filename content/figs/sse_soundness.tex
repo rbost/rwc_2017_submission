@@ -1,0 +1,54 @@
+% !TEX root = ../definitions.tex
+
+
+\begin{figure}[!hb]
+	\centering
+		\begin{tabular}{r|l}
+		\hspace{-0.015\textwidth}	
+		\begin{minipage}[t]{0.465\textwidth}
+			\underline{$\Init(\DB)$}
+			\begin{algorithmic}[0]
+				\State $(\EDB, K_\Sigma, \sigma) \gets \Setup(\DB)$
+				\State \Return $\EDB$
+			\end{algorithmic}
+
+			\underline{$\Search(q)$}
+			\begin{algorithmic}[0]
+				% \State Parse $q$ as $(\phi,w_1,\dots,w_n)$
+				\State $(V,\sigma', \tau; \EDB) \getsr \Search_C(K_\Sigma,\sigma,q) \leftrightarrow A$
+				\If{$V \neq \bot$}
+				\State{$\sigma \gets \sigma'$}
+				\State \textbf{if} {$V \neq \DB(q)$} \textbf{then} {$\win \gets \true$}
+				% \State
+				\EndIf
+				\State \Return $\tau$
+			\end{algorithmic}
+		\end{minipage}
+		&
+			% \hspace{0.6cm}
+			% \hspace{0.001\textwidth}
+		\begin{minipage}[t]{0.489\textwidth}
+			\underline{$\Update(\op,\opin)$}
+			\begin{algorithmic}[0]
+				\State $(\sigma', \tau; \EDB) \getsr \Update_C(K_\Sigma, \sigma,\op,\opin) \leftrightarrow A$
+				\If{$\sigma' \neq \bot$}
+				\State $\DB \gets \mathsf{Apply}(\DB,\op,\opin)$
+				\State $\EDB \gets \EDB', \sigma \gets \sigma'$
+				\EndIf
+				\State \Return $\tau$
+			\end{algorithmic}
+
+			\underline{$\Final()$}
+			\begin{algorithmic}[0]
+				\State \Return $\win$
+			\end{algorithmic}
+			
+		\end{minipage}
+		\end{tabular}
+	\caption[$\SSESnd_{\Sigma}$: SSE soundness game]
+	{$\SSESnd_{\Sigma}$: Soundness game for scheme $\Sigma = (\Setup, \Search, \Update)$.
+	% The notation $\leftrightarrow A$ represents interactions with the adversary.
+	}
+	\label{fig:sound_sse}
+\end{figure}
+
