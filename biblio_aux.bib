@@ -1,289 +1,51 @@
-%% This BibTeX bibliography file was created using BibDesk.
-%% http://bibdesk.sourceforge.net/
-
-
-%% Created for Raphael Bost at 2015-10-06 13:48:59 +0200 
-
-
 %% Saved with string encoding Unicode (UTF-8) 
 
-@book{Cormen:2009:IAT:1614191,
- author = {Cormen, Thomas H. and Leiserson, Charles E. and Rivest, Ronald L. and Stein, Clifford},
- title = {Introduction to Algorithms, Third Edition},
- year = {2009},
- isbn = {0262033844, 9780262033848},
- edition = {3rd},
- publisher = {The MIT Press},
+%% Unpublished
+
+@Misc{UnPub:BosFou17,
+  author =       "Bost, Raphael and Fouque, Pierre-Alain",
+  title =        "Thwarting Leakage Abuse Attacks against Searchable Encryption -- A Formal Approach and Applications to Database Padding",
+  year =         2017,
+  note = "Unpublished"
+}
+
+%% Temporary (waiting for a Cryptobib update)
+
+@InProceedings{CCS:BosMinOhr17,
+  author =       "Bost, Raphael and Minaud, Brice and Ohrimenko, Olga",
+  title =        "Forward and Backward Private Searchable Encryption from Constrained Cryptographic Primitives",
+  editor =       ccs17ed,
+  booktitle =    ccs17name,
+  address =      ccs17addr,
+  month =        ccs17month,
+  publisher =    ccspub,
+  year =         2017,
+}
+
+@Misc{EPRINT:ACNPRS17,
+  author =       "Gilad Asharov and
+                  T-H. Hubert Chan and
+                  Kartik Nayak and
+                  Rafael Pass and
+                  Ling Ren and
+                  Elaine Shi",
+  title =        "Oblivious Computation with Data Locality",
+  year =         2017,
+  howpublished = "Cryptology ePrint Archive, Report 2017/772",
+  note =         "\url{http://eprint.iacr.org/2017/772}",
+}
+
+%%
+@book{BOOK:CLRS09,
+	author = {Cormen, Thomas H. and Leiserson, Charles E. and Rivest, Ronald L. and Stein, Clifford},
+	title = {Introduction to Algorithms, Third Edition},
+	year = {2009},
+	isbn = {9780262033848},
+	edition = {3rd},
+	publisher = {The MIT Press},
 } 
 
-
-@Misc{MSTA16,
-	Author = {Jeremy Maitin-Shepard and Mehdi Tibouchi and Diego F. Aranha},
-	Title = {{Elliptic Curve Multiset Hash}},
-	Year = {2016},
-    howpublished = "arXiv, Report 1601.06502",	
-    note =         "\url{http://arxiv.org/abs/1601.06502}",
-	}
-
-@inproceedings{goodrich2011oblivious,
-	Author = {Goodrich, Michael T and Mitzenmacher, Michael and Ohrimenko, Olga and Tamassia, Roberto},
-	Booktitle = {Proceedings of the 3rd ACM workshop on Cloud computing security workshop},
-	Organization = {ACM},
-	Pages = {95--100},
-	Title = {Oblivious RAM simulation with efficient worst-case access overhead},
-	Year = {2011}}
-
-@article{goldreich1996software,
-	Author = {Goldreich, Oded and Ostrovsky, Rafail},
-	Date-Added = {2015-05-18 09:45:15 +0000},
-	Date-Modified = {2015-05-18 09:45:15 +0000},
-	Journal = {Journal of the ACM (JACM)},
-	Number = {3},
-	Pages = {431--473},
-	Publisher = {ACM},
-	Title = {Software protection and simulation on oblivious {RAM}s},
-	Volume = {43},
-	Year = {1996}}
-
-@book{goldreich2004foundations,
-	Author = {Goldreich, Oded},
-	Date-Added = {2015-05-13 09:40:31 +0000},
-	Date-Modified = {2015-05-13 09:41:09 +0000},
-	Publisher = {Cambridge University Press},
-	Title = {Foundations of cryptography.},
-	Year = {2004}}
-
-@article{rogaway2003ocb,
-	Author = {Rogaway, Phillip and Bellare, Mihir and Black, John},
-	Date-Added = {2015-07-22 12:40:12 +0000},
-	Date-Modified = {2015-08-26 13:42:42 +0000},
-	Journal = {ACM Transactions on Information and System Security (TISSEC)},
-	Number = {3},
-	Pages = {365--403},
-	Publisher = {ACM},
-	Title = {{OCB}: A block-cipher mode of operation for efficient authenticated encryption},
-	Volume = {6},
-	Year = {2003}}
-
-@incollection{clarke2003incremental,
-	Address = asiacrypt03addr,
-	Author = {Clarke, Dwaine and Devadas, Srinivas and Van Dijk, Marten and Gassend, Blaise and Suh, G Edward},
-	Booktitle = asiacrypt03name,
-	Editor = asiacrypt03ed,
-	Month = asiacrypt03month,
-	Pages = {188--207},
-	Publisher = asiacryptpub,
-	Series = mylncs,
-	Title = {Incremental multiset hash functions and their application to memory integrity checking},
-	Volume = asiacrypt03vol,
-	Year = 2003}
-
-@misc{RPi_perf,
-	Annote = {[Online; accessed 10-September-2015]},
-	Date-Added = {2015-09-10 11:36:25 +0000},
-	Date-Modified = {2015-09-10 11:48:16 +0000},
-	Howpublished = {\url{http://elinux.org/RPi_Performance#OpenSSL}},
-	Lastchecked = {September 2015},
-	Month = {September},
-	Read = {0},
-	Title = {{RPi OpenSSL Performance}},
-	Year = {2015}}
-
-@inproceedings{NDSS:MieMoh17,
-    author = {Ian Miers and Payman Mohassel},
-    title = {{IO-DSSE}: Scaling Dynamic Searchable Encryption to Millions of Indexes By Improving Locality},
-    editor =       ndss17ed,
-    booktitle =    ndss17name,
-    address =      ndss17addr,
-    month =        ndss17month,
-    publisher =    ndsspub_v2,
-    year =         2017,
-}
-
-@inproceedings{RFYvDD13,
-	author = 	"L. Ren and
-		 		 C. Fletcher and
-				 X. Yu and
-				 M. van Dijk and
-				 S. Devadas",
-	title = "Integrity verification for path oblivious ram.",
-	Month = {September},
-	year = 2013,
-	Booktitle = {Proceedings of the 17th IEEE High Performance Extreme Computing Conference},
-}
-
-@misc{garg2016personal,
-	Author = {Sanjam Garg},
-	Title = {Personal Communications},
-	Year = {2016}
-}
-	
-@inproceedings{USENIX:RFKSSv15,
-  author    = {Ling Ren and
-               Christopher W. Fletcher and
-               Albert Kwon and
-               Emil Stefanov and
-               Elaine Shi and
-               Marten van Dijk and
-               Srinivas Devadas},
-  title     = {Constants Count: Practical Improvements to Oblivious {RAM}},
-  booktitle = {24th {USENIX} Security Symposium, {USENIX} Security 15, Washington,
-               D.C., USA, August 12-14, 2015.},
-  pages     = {415--430},
-  year      = {2015},
-  crossref  = {DBLP:conf/uss/2015},
-  url       = {https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/ren-ling},
-  timestamp = {Thu, 20 Aug 2015 14:07:40 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/uss/RenFKSSDD15},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-
-@inproceedings{USENIX:ZhaKatPap16,
-  author    = {Yupeng Zhang and
-               Jonathan Katz and
-               Charalampos Papamanthou},
-  title     = {All Your Queries Are Belong to Us: The Power of File-Injection Attacks
-               on Searchable Encryption},
-  booktitle = {25th {USENIX} Security Symposium, {USENIX} Security 16, Austin, TX,
-               USA, August 10-12, 2016.},
-  pages     = {707--720},
-  year      = {2016},
-  timestamp = {Mon, 05 Sep 2016 15:43:05 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/uss/ZhangKP16},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-%%   url       = {https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/zhang},
-
-@proceedings{DBLP:conf/uss/2015,
-  editor    = {Jaeyeon Jung and
-               Thorsten Holz},
-  title     = {24th {USENIX} Security Symposium, {USENIX} Security 15, Washington,
-               D.C., USA, August 12-14, 2015},
-  publisher = {{USENIX} Association},
-  year      = {2015},
-  url       = {https://www.usenix.org/conference/usenixsecurity15},
-  timestamp = {Thu, 20 Aug 2015 14:06:34 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/uss/2015},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-
-@InProceedings{EC:KamMoa17,
-  author =       "Seny Kamara and
-                  Tarik Moataz",
-  title =        "Boolean Searchable Symmetric Encryption with Worst-Case Sub-Linear",
-  editor =       eurocrypt17ed,
-  booktitle =    eurocrypt17name,
-  volume =       eurocrypt17vol,
-  address =      eurocrypt17addr,
-  month =        eurocrypt17month,
-  publisher =    eurocryptpub,
-  series =       mylncs,
-  year =         2017,
-}
-
-
-@InProceedings{EC:CanChe17,
-  author =       "Ran Canetti and
-                  Yilei Chen",
-  title =        "Constraint-hiding Constrained PRFs for NC1 from LWE",
-  editor =       eurocrypt17ed,
-  booktitle =    eurocrypt17name,
-  volume =       eurocrypt17vol,
-  address =      eurocrypt17addr,
-  month =        eurocrypt17month,
-  publisher =    eurocryptpub,
-  series =       mylncs,
-  year =         2017,
-}
-
-
-@inproceedings{DBLP:conf/uss/BonehL96,
-  author    = {Dan Boneh and
-               Richard J. Lipton},
-  title     = {A Revocable Backup System},
-  booktitle = {Proceedings of the 6th {USENIX} Security Symposium, San Jose, CA,
-               USA, July 22-25, 1996},
-  year      = {1996},
-  crossref  = {DBLP:conf/uss/1996},
-  url       = {https://www.usenix.org/conference/6th-usenix-security-symposium/revocable-backup-system},
-  timestamp = {Fri, 19 Aug 2016 15:38:03 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/uss/BonehL96},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-
-@proceedings{DBLP:conf/uss/1996,
-  title     = {Proceedings of the 6th {USENIX} Security Symposium, San Jose, CA,
-               USA, July 22-25, 1996},
-  publisher = {{USENIX} Association},
-  year      = {1996},
-  url       = {https://www.usenix.org/publications/proceedings/?f[0]=im_group_audience%3A245},
-  timestamp = {Fri, 19 Aug 2016 15:38:03 +0200},
-  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/uss/1996},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
-}
-
-@inproceedings {USENIX:ReaCapBas12,
-author = {Joel Reardon and Srdjan Capkun and David Basin},
-title = {Data Node Encrypted File System: Efficient Secure Deletion for Flash Memory},
-booktitle = {Presented as part of the 21st USENIX Security Symposium (USENIX Security 12)},
-year = {2012},
-isbn = {978-931971-95-9},
-address = {Bellevue, WA},
-pages = {333--348},
-url = {https://www.usenix.org/conference/usenixsecurity12/technical-sessions/presentation/reardon},
-publisher = {USENIX},
-}
-
-@misc{CipherCloud,
-	author = {CipherCloud},
-	title = {Cloud Data Encryption},
-	url = {http://www.ciphercloud.com/technologies/encryption/}
-}
-
-@misc{skyhigh,
-	author = {skyhigh},
-	title = {Cloud Security and Enablement},
-	url = {https://www.skyhighnetworks.com}
-}
-
-@misc{RocksDB,
-	Annote = {[Online; accessed 17-May-2017]},
-	author = {{Facebook, Inc.}},
-	howpublished = {\url{http://rocksdb.org}},
-	Title = {{RocksDB: A Persistent Key-Value Store for Flash and RAM Storage.}},
-	}
-
-@misc{gRPC,
-	Annote = {[Online; accessed 26-April-2016]},
-	author = {{Google, Inc.}},
-	url = {http://www.grpc.io/},
-	Lastchecked = {April 2016},
-	Month = {April},
-	Title = {{gRPC: A high performance, open source, general RPC framework that puts mobile and HTTP/2 first.}},
-	Year = {2016}}
-	
-@misc{code,
-	author = {Raphael Bost},
-	title = {{Implementation of $\sophos$, $\diana$ and $\janus$}},
-	url = {https://github.com/OpenSSE/opensse-schemes},
-	Year = {2017}
-}
-
-@misc{enron_dataset,
-	title = {{Enron email dataset.}},
-	url = {https://www.cs.cmu.edu/~./enron/},
-	Lastchecked = {January 2016},
-}
-
-@misc{Intel750,
-	author = {{Intel}},
-	Lastchecked = {May 2016},
-	title = {{Intel® SSD 750 Series: Performance Unleashed}},
-	url = {http://www.intel.com/content/www/us/en/solid-state-drives/solid-state-drives-750-series.html}
-}
-
-
-@article{hardy1918asymptotic,
+@article{BOOK:HarRam1918,
   title={Asymptotic formul{\ae} in combinatory analysis},
   author={Hardy, Godfrey H. and Ramanujan, Srinivasa},
   journal={Proceedings of the London Mathematical Society},
@@ -294,15 +56,471 @@ publisher = {USENIX},
   publisher={Oxford University Press}
 }
 
-
-@misc{relic-toolkit,
-    author = {D. F. Aranha and C. P. L. Gouv\^{e}a},
-    title = {{RELIC is an Efficient LIbrary for Cryptography}},
-    howpublished = {\url{https://github.com/relic-toolkit/relic}},
+@article{CJ:MaiTibAra16,
+	title={Elliptic Curve Multiset Hash},
+	author={Maitin-Shepard, Jeremy and Tibouchi, Mehdi and Aranha, Diego F},
+	journal={The Computer Journal},
+	volume={60},
+	number={4},
+	pages={476--490},
+	year={2016},
+	publisher={Oxford University Press}
 }
 
-@misc{libforwardsec,
+@inproceedings{CCSW:GMOT11,
+	Author = {Goodrich, Michael T and Mitzenmacher, Michael and Ohrimenko, Olga and Tamassia, Roberto},
+	Booktitle = {Proceedings of the 3rd ACM workshop on Cloud computing security workshop},
+	Organization = {ACM},
+	Pages = {95--100},
+	Title = {Oblivious RAM simulation with efficient worst-case access overhead},
+	Year = {2011}
+}
+
+@article{JACM:GO96,
+	Author = {Goldreich, Oded and Ostrovsky, Rafail},
+	Journal = {Journal of the ACM},
+	Number = {3},
+	Pages = {431--473},
+	Publisher = {ACM},
+	Title = {Software protection and simulation on oblivious {RAM}s},
+	Volume = {43},
+	Year = {1996}
+}
+
+@article{JACM:CGKS98,
+  	Author={Chor, Benny and Goldreich, Oded and Kushilevitz, Eyal and Sudan, Madhu},
+	Title={Private Information Retrieval},
+	Journal = {Journal of the ACM},
+	volume={45},
+    number={6},
+    pages={965--982},
+    year={1998},
+	Publisher = {ACM},
+}
+
+@article{Gasarch04,
+  title={A survey on private information retrieval},
+  author={Gasarch, William},
+  journal={The Bulletin of the EATCS},
+  volume={82},
+  number={72-107},
+  pages={1},
+  year={2004}
+}
+@book{BOOK:Goldreich04,
+	Author = {Goldreich, Oded},
+	Date-Added = {2015-05-13 09:40:31 +0000},
+	Date-Modified = {2015-05-13 09:41:09 +0000},
+	Publisher = {Cambridge University Press},
+	Title = {Foundations of cryptography.},
+	Year = {2004}
+}
+
+@article{TISSEC:RogBelBla03,
+	Author = {Rogaway, Phillip and Bellare, Mihir and Black, John},
+	Date-Added = {2015-07-22 12:40:12 +0000},
+	Date-Modified = {2015-08-26 13:42:42 +0000},
+	Journal = {ACM Transactions on Information and System Security (TISSEC)},
+	Number = {3},
+	Pages = {365--403},
+	Publisher = {ACM},
+	Title = {{OCB}: A block-cipher mode of operation for efficient authenticated encryption},
+	Volume = {6},
+	Year = {2003}
+}
+
+@misc{RPi_perf,
+	Annote = {[Online; accessed 10-September-2015]},
+	Date-Added = {2015-09-10 11:36:25 +0000},
+	Date-Modified = {2015-09-10 11:48:16 +0000},
+	Howpublished = {\url{http://elinux.org/RPi_Performance#OpenSSL}},
+	Lastchecked = {September 2015},
+	Month = {September},
+	Read = {0},
+	Title = {{RPi OpenSSL Performance}},
+	Year = {2015}
+}
+
+@inproceedings{NDSS:MieMoh17,
+	author = {Ian Miers and Payman Mohassel},
+	title = {{IO-DSSE}: Scaling Dynamic Searchable Encryption to Millions of Indexes By Improving Locality},
+	editor =       ndss17ed,
+	booktitle =    ndss17name,
+	address =      ndss17addr,
+	month =        ndss17month,
+	publisher =    ndsspub_v2,
+	year =         2017,
+}
+
+@inproceedings{HPECC:RFYvDD13,
+	author = 	"L. Ren and
+	C. Fletcher and
+	X. Yu and
+	M. van Dijk and
+	S. Devadas",
+	title = "Integrity verification for path oblivious ram.",
+	Month = {September},
+	year = 2013,
+	Booktitle = {Proceedings of the 17th IEEE High Performance Extreme Computing Conference},
+}
+
+@misc{PERSO:Garg16,
+	Author = {Sanjam Garg},
+	Title = {Personal Communications},
+	Year = {2016}
+}
+	
+@inproceedings{USENIX:RFKSSv15,
+	author    = {Ling Ren and
+	Christopher W. Fletcher and
+	Albert Kwon and
+	Emil Stefanov and
+	Elaine Shi and
+	Marten van Dijk and
+	Srinivas Devadas},
+	title     = {Constants Count: Practical Improvements to Oblivious {RAM}},
+	booktitle = {24th {USENIX} Security Symposium, {USENIX} Security 15, Washington,
+	D.C., USA, August 12-14, 2015.},
+	pages     = {415--430},
+	year      = {2015},
+	timestamp = {Thu, 20 Aug 2015 14:07:40 +0200},
+	biburl    = {http://dblp.uni-trier.de/rec/bib/conf/uss/RenFKSSDD15},
+	bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+%%   url       = {https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/ren-ling},
+
+@inproceedings{USENIX:ZhaKatPap16,
+	author    = {Yupeng Zhang and
+	Jonathan Katz and
+	Charalampos Papamanthou},
+	title     = {All Your Queries Are Belong to Us: The Power of File-Injection Attacks
+	on Searchable Encryption},
+	booktitle = {25th {USENIX} Security Symposium, {USENIX} Security 16, Austin, TX,
+	USA, August 10-12, 2016.},
+	pages     = {707--720},
+	year      = {2016},
+	timestamp = {Mon, 05 Sep 2016 15:43:05 +0200},
+	biburl    = {http://dblp.uni-trier.de/rec/bib/conf/uss/ZhangKP16},
+	bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+%%   url       = {https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/zhang},
+
+
+@inproceedings{SOSP:PRZB11,
+  title={CryptDB: protecting confidentiality with encrypted query processing},
+  author={Popa, Raluca Ada and Redfield, Catherine and Zeldovich, Nickolai and Balakrishnan, Hari},
+  booktitle={ACM SOSP 11},
+  pages={85--100},
+  year={2011},
+  organization={ACM}
+}
+
+@Misc{arXiv:MenZhuKol15,
+  title={Top-k Query Processing on Encrypted Databases with Strong Security Guarantees},
+  author={Meng, Xianrui and Zhu, Haohan and Kollios, George},
+  howpublished = "arXiv preprint arXiv:1510.05175",
+  year={2015}
+}
+
+@article{HarRam1918,
+	title={Asymptotic formul{\ae} in combinatory analysis},
+	author={Hardy, Godfrey H. and Ramanujan, Srinivasa},
+	journal={Proceedings of the London Mathematical Society},
+	volume={2},
+	number={1},
+	pages={75--115},
+	year={1918},
+	publisher={Oxford University Press}
+}
+
+
+@article{RSA78,
+	title={A method for obtaining digital signatures and public-key cryptosystems},
+	author={Rivest, Ronald and Shamir, Adi and Adleman, Leonard},
+	journal={Communications of the ACM},
+	volume={21},
+	number={2},
+	pages={120--126},
+	year={1978},
+	publisher={ACM}
+}
+
+@article{RivAdlDer78,
+  title={On data banks and privacy homomorphisms},
+  author={Rivest, Ronald and Adleman, Leonard and Dertouzos, Michael},
+  journal={Foundations of secure computation},
+  volume={4},
+  number={11},
+  pages={169--180},
+  year={1978}
+}
+
+
+@inproceedings{SIGMOD:DemPap17,
+	title={Fast Searchable Encryption With Tunable Locality},
+	author={Demertzis, Ioannis and Papamanthou, Charalampos},
+	booktitle={Proceedings of the 2017 ACM International Conference on Management of Data},
+	pages={1053--1067},
+	year={2017},
+	organization={ACM}
+}
+
+%% URLs
+
+@misc{URL:CipherCloud,
+	author = {CipherCloud},
+	title = {Cloud Data Encryption},
+	url = {http://www.ciphercloud.com/technologies/encryption/}
+}
+
+@misc{URL:Skyhigh,
+	author = {skyhigh},
+	title = {Cloud Security and Enablement},
+	url = {https://www.skyhighnetworks.com}
+}
+
+@misc{URL:RocksDB,
+	Annote = {[Online; accessed 8-September-2017]},
+	author = {{Facebook, Inc.}},
+	url = {http://rocksdb.org},
+	Lastchecked = {September 2017},
+	Month = 09,
+	Title = {{RocksDB: A Persistent Key-Value Store for Fast Storage Environments.}},
+	Year = {2017}
+}
+
+@misc{URL:gRPC,
+	Annote = {[Online; accessed 8-September-2017]},
+	author = {{Google, Inc.}},
+	url = {https://grpc.io},
+	Lastchecked = {September 2017},
+	Month = 09,
+	Title = {{gRPC: A high performance, open-source universal RPC framework}},
+	Year = {2017}
+}
+	
+@misc{URL:OpenSSE,
+	author = {Raphael Bost},
+	title = {{Implementation of $\sophos$, $\diana$ and $\janus$}},
+	url = {https://github.com/OpenSSE/opensse-schemes},
+	Year = {2017}
+}
+
+@misc{URL:Intel750,
+	author = {{Intel}},
+	Lastchecked = {September 2017},
+	title = {{Intel® SSD 750 Series: Performance Unleashed}},
+	url = {https://www.intel.com/content/www/us/en/products/memory-storage/solid-state-drives/gaming-enthusiast-ssds/750-series/750-400gb-2-5-inch-20nm.html}
+}
+
+@misc{URL:850Evo_DS,
+	author = {{Samsumg}},
+	Lastchecked = {September 2017},
+	title = {{Samsung SSD 850 EVO
+Data Sheet, Rev.3.1}},
+	url = {https://www.samsung.com/semiconductor/minisite/ssd/downloads/document/Samsung_SSD_850_EVO_Data_Sheet_Rev_3_1.pdf},
+	month = 05,
+	year = 2016
+}
+
+
+
+@misc{URL:vmtouch,
+	author = {{Doug Hoyte}},
+	Lastchecked = {September 2017},
+	title = {{vmtouch - the Virtual Memory Toucher}},
+	url = {https://github.com/hoytech/vmtouch},
+	Year = {2017}
+}
+
+@misc{URL:libforwardsec,
     author = {Miers, Ian},
     title = {{Libforwardsec. Forward secure encryption for asynchronous messaging.}},
-    howpublished = {\url{https://github.com/imichaelmiers/libforwardsec}},
+    url = {https://github.com/imichaelmiers/libforwardsec},
+	year = 2015
+}
+
+@misc{URL:relic-toolkit,
+    author = {D. F. Aranha and C. P. L. Gouv\^{e}a},
+    title = {{RELIC is an Efficient LIbrary for Cryptography}},
+    url = {https://github.com/relic-toolkit/relic},
+}
+
+@misc{URL:enron_dataset,
+	author = {Enron Corporation},
+	shorthand = {Enron},
+	title = {{Enron email dataset.}},
+	url = {https://www.cs.cmu.edu/~./enron/},
+	Lastchecked = {January 2016},
+}
+%% Regulation links
+
+@misc{LEX:USA_HIPPA,
+	shorthand = "USA96",
+	title = {{Health Insurance Portability and Accountability Act of 1996}},
+	organization = "United States of America",
+	publisher = {U.S. Government Printing Office},
+	journal={United States Statutes at Large},
+	volume={110 Stat. 1936},
+	year = 1996,
+	month = 08,
+	day = 21,
+	url = "https://www.gpo.gov/fdsys/pkg/PLAW-104publ191/html/PLAW-104publ191.htm"
+}
+
+@misc{LEX:USA_SOX,
+	shorthand = "USA02",
+	title = {{Sarbanes-Oxley Act 
+of 2002}},
+	organization = "United States of America",
+	publisher = {U.S. Government Printing Office},
+	journal={United States Statutes at Large},
+	volume={116 Stat. 745},
+	year = 2002,
+	month = 07,
+	day = 30,
+	url = "https://www.gpo.gov/fdsys/pkg/PLAW-107publ204/html/PLAW-107publ204.htm"
+}
+
+@misc{LEX:EU_Reg_2016/679,
+	shorthand = "EU16",
+	title = {{REGULATION (EU) 2016/679 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 27 April 2016
+on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation)}},
+	organization = "European Union",
+	publisher = "Publications Office of the European Union",
+	journal={Official Journal of the European Communities},
+	volume={L 119},
+	year = 2016,
+	month = 04,
+	day = 24,
+	url = "http://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32016R0679&from=EN"
+}
+
+@misc{LEX:EU_Dir_95/46/EC,
+	shorthand = "EU95",
+	title = {{DIRECTIVE 95/46/EC OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 24 October 1995
+on the protection of individuals with regard to the processing of personal data and on the free movement of such data}},
+	organization = "European Union",
+	publisher = "Publications Office of the European Union",
+	journal={Official Journal of the European Communities},
+	volume={L 281},
+	year = 1995,
+	month = 10,
+	day = 24,
+	url = "http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:31995L0046&from=EN"
+}
+
+%% Market growth
+
+@misc{FORBES:Columbus15,
+    author={Columbus, Louis},
+	title = {Roundup Of Small \& Medium Business Cloud Computing Forecasts And Market Estimates, 2015},
+    publisher={Forbes},
+	year = 2015,
+	month = 05,
+	day = 04,
+	url ="https://www.forbes.com/sites/louiscolumbus/2015/05/04/roundup-of-small-medium-business-cloud-computing-forecasts-and-market-estimates-2015"
+}
+
+@misc{IDC16,
+    author={Gantz, John F. and Miller, Pam},
+	title = {The Salesforce Economy: Enabling 1.9 Million New Jobs and \$389 Billion in New Revenue Over the Next Five Years},
+    publisher={International Data Corporation (IDC)},
+	year = 2016,
+	month = 09,
+	url = "http://www.salesforce.com/assets/pdf/misc/IDC-salesforce-economy-study-2016.pdf"
+}
+
+%% Snowden revelations
+
+@book{BOOK:Greenwald14,
+  title={No place to hide: Edward Snowden, the NSA, and the US surveillance state},
+  author={Greenwald, Glenn},
+  year={2014},
+  publisher={Macmillan}
+}
+
+%% Signal & WhatsApp
+
+@misc{MarPer16,
+  title={The double ratchet algorithm},
+  author={Marlinspike, Moxie and Perrin, Trevor},
+  year={2016},
+  publisher={Open Whisper Systems Inc.},
+  url = {https://whispersystems.org/docs/specifications/doubleratchet/doubleratchet.pdf}
+}
+
+
+@inproceedings{ESP:CCDGS17,
+  author    = {Katriel Cohn{-}Gordon and
+               Cas Cremers and
+               Benjamin Dowling and
+               Luke Garratt and
+               Douglas Stebila},
+  title     = {A Formal Security Analysis of the Signal Messaging Protocol},
+  booktitle = {{IEEE} European Symposium on Security and Privacy, EuroS{\&}P
+               2017, Paris, France, April 26-28, 2017},
+  pages     = {451--466},
+  year      = {2017},
+  crossref  = {DBLP:conf/eurosp/2017},
+  url       = {https://doi.org/10.1109/EuroSP.2017.27},
+  doi       = {10.1109/EuroSP.2017.27},
+}
+
+@proceedings{DBLP:conf/eurosp/2017,
+  title     = {{IEEE} European Symposium on Security and Privacy, EuroS{\&}P
+               2017, Paris, France, April 26-28, 2017},
+  publisher = {{IEEE}},
+  year      = {2017},
+  url       = {http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=7467055},
+  isbn      = {978-1-5090-1751-5},
+}
+
+@misc{URL:WA_Signal,
+	author = { Jan Koum and 
+				Brian Acton},
+	Annote = {[Online; accessed 7-July-2017]},
+	Title = {{WhatsApp Blog: end-to-end encryption}},
+	Year = {2016},
+	month = 04,
+	day = 5,
+	url = {https://blog.whatsapp.com/10000618/end-to-end-encryption?l=en}
+}
+
+@misc{URL:SGX,
+	author = { Intel},
+	Annote = {[Online; accessed 20-September-2017]},
+	Title = {{Intel® Software Guard Extensions: An Intel® architecture extension designed to increase the security of application code and data.}},
+	Year = {2017},
+	month = 07,
+	day = 05,
+	url = {https://software.intel.com/en-us/sgx/details}
+}
+
+%% RFCs
+
+@techreport{RFC7693,
+  author = {M-J. Saarinen and J-P. Aumasson},
+  title = {The BLAKE2 Cryptographic Hash and Message Authentication Code (MAC)},
+  howpublished = {Internet Requests for Comments},
+  type = {RFC},
+  number = {7693},
+  year = {2015},
+  month = 11,
+  issn = {2070-1721},
+  publisher = {RFC Editor},
+  institution = {RFC Editor},
+}
+
+@article{FIPS197,
+  title={197: Advanced encryption standard (AES)},
+  author={Pub, NIST FIPS},
+  journal={Federal information processing standards publication},
+  volume={197},
+  number={441},
+  pages={0311},
+  year={2001},
+  month = {11},
+  day = {26},
+  url = {https://doi.org/10.6028/NIST.FIPS.197}
 }
