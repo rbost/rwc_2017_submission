@@ -15,14 +15,14 @@ Finally, we will also denote $\sigma$ the size of the local state of the client.
 
 The first lower bound we show answer the question of the minimal search efficiency of a scheme hiding the repetition of search queries, but that leaks the number of results of each query, and the size of the database.
 
-Using a technique close to the one used in the ORAM lower bound of Goldreich and Ostrovsky~\cite{JACM:GO96}, we show that the efficiency of the search protocol of such scheme has to be 
-\[
+Using a technique close to the one used in the ORAM lower bound of Goldreich and Ostrovsky~\cite{JACM:GO96}, we show that the computational efficiency of the search protocol of such scheme has to be 
+\(
 		\bigOmega{\frac{\log \binom{N}{n_w}}{\log \sigma \cdot \log \log  \binom{N}{n_w}}}
-\]
+\)
 for the first search query (the lower bound for the subsequent queries is slightly better but more complex to describe here).
+Note, that this does not preclude schemes with optimal communication complexity ($\bigsmallO{n_w}$): we are only accounting for the computational complexity here.
 
-
-We will also see that is the encrypted database has more structure and leaks the keyword frequency (also called the profile of the database in~\cite{EC:CasTes14}), this lower bound does not hold anymore, and a new (tight) bound can be proven.
+We will also see that is the encrypted database has more structure and leaks the keyword frequency (also called the profile of the database in~\cite{EC:CasTes14}), this lower bound does not hold anymore, and a new bound can be proven, and a construction with this leakage can be designed, showing that this lower bound is (almost) tight.
 
 
 % subsection search_pat_lb (end)
@@ -36,10 +36,10 @@ This security property thwart devastating attacks against dynamic searchable enc
 Yet, every existing construction had a cost, either in terms of computation ($\bigO{n_w + \log N}$ computation for the search protocol and $\bigO{\log^2 N}$ for the update protocol of $\SPS$~\cite{NDSS:StePapShi14}), or in terms of client storage ($\bigO{K}$ for $\sophos$~\cite{CCS:Bost16}).
 
 We actually show that $\sophos$ is an optimal point in the security-performance tradeoff. Namely, the update complexity of a forward-private scheme is
-\[
+\(
 		\bigOmega{\frac{\log K}{\log \sigma \cdot \log \log  K}}.
-\]
-$\sophos$ shows that the lower bound is tight, as we have $\sigma = K$, and both the search and update complexity is constant.
+\)
+$\sophos$ shows that the lower bound is tight, as, for this scheme, we have $\sigma = K$, and both the search and update complexity is constant.
 
 % subsection fp_lb (end)
 
@@ -51,7 +51,7 @@ Schemes whose results cannot be tampered are called verifiable.
 
 Again, we can wonder what is the cost of this additional security property.
 We show that this problem is closely related to  memory checking, and is tight to similar lower bounds on efficiency~\cite{ICALP:TamTri05,TCC:DNRV09}.
-Namely, the search or update complexity of a verifiable scheme is \[\bigOmega{m + \frac{\log K}{\log \log K}}\] as long as the client's state has size $K^{1-\varepsilon}$ for $\varepsilon > 0$. 
+Namely, the search or update complexity of a verifiable scheme is \(\bigOmega{m + \frac{\log K}{\log \log K}}\) as long as the client's state has size $K^{1-\varepsilon}$ for $\varepsilon > 0$. 
 % subsection vsse_lb (end)
 
 % section contributions (end)
